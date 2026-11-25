@@ -1,0 +1,36 @@
+.footer-component {
+  min-height: 90px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #65676c;
+  font: 14px 'DM Mono', monospace;
+  text-transform: uppercase;
+}
+
+.footer-component div {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-component a {
+  transition: color 0.2s ease;
+}
+
+.footer-component a:hover {
+  color: white;
+}
+
+@media (max-width: 700px) {
+  .footer-component {
+    display: block;
+    padding: 27px 0;
+    line-height: 2;
+  }
+
+  .footer-component div {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+}
