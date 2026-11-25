@@ -1,24 +1,128 @@
-.projects-page { position: relative; }
+.projects-page {
+  position: relative;
+}
 
-.project-list { width: 100%; }
-.project { position: relative; min-height: 180px; display: grid; grid-template-columns: 12% 30% 1fr 40px; align-items: center; border-bottom: 1px solid var(--line); cursor: pointer; overflow: hidden; transform-style: preserve-3d; transition: border-color 0.3s ease; will-change: transform; }
-.project::before { position: absolute; inset: 0; content: ''; opacity: 0; pointer-events: none; background: linear-gradient(115deg, transparent 30%, rgba(120, 170, 255, 0.12) 48%, transparent 68%); transform: translateX(-100%); transition: opacity 0.35s ease, transform 0.7s ease; }
-.project:hover { border-color: var(--blue); }
-.project:hover::before { opacity: 1; transform: translateX(100%); }
-.project-number, .project-title, .project-detail, .project-arrow { position: relative; z-index: 1; transform: translateZ(18px); }
-.project-number { color: var(--orange); font: 14px 'DM Mono', monospace; }
-.project.blue .project-number, .project.blue .project-title p, .project.blue .project-detail, .project.blue .project-arrow { color: var(--blue); }
-.project.orange .project-number, .project.orange .project-title p, .project.orange .project-detail, .project.orange .project-arrow { color: var(--orange); }
-.project.blue .project-title h3, .project.orange .project-title h3 { color: #f0f1f3; }
-.project-title h3 { margin: 0; font-size: calc(clamp(2rem, 4vw, 4.5rem) + 2px); letter-spacing: -0.07em; }
-.project-title p, .project-detail { color: var(--muted); font-size: 14px; }
-.project-detail { max-width: 230px; line-height: 1.6; }
-.project-arrow { color: var(--orange); font-size: 27px; }
-.project.blue:hover .project-arrow { color: var(--blue); }
-.project.orange:hover .project-arrow { color: var(--orange); }
+.project-list {
+  width: 100%;
+}
 
+/* Project row */
+.project {
+  position: relative;
+  display: grid;
+  grid-template-columns: 12% 30% 1fr 40px;
+  align-items: center;
+  min-height: 180px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: border-color 0.3s ease;
+  will-change: transform;
+}
+
+.project::before {
+  position: absolute;
+  inset: 0;
+  content: '';
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(120, 170, 255, 0.12) 48%,
+    transparent 68%
+  );
+  transform: translateX(-100%);
+  transition: opacity 0.35s ease, transform 0.7s ease;
+}
+
+.project:hover {
+  border-color: var(--blue);
+}
+
+.project:hover::before {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+/* Project content */
+.project-number,
+.project-title,
+.project-detail,
+.project-arrow {
+  position: relative;
+  z-index: 1;
+  transform: translateZ(18px);
+}
+
+.project-number {
+  color: var(--orange);
+  font: 14px 'DM Mono', monospace;
+}
+
+.project-title h3 {
+  margin: 0;
+  font-size: calc(clamp(2rem, 4vw, 4.5rem) + 2px);
+  letter-spacing: -0.07em;
+}
+
+.project-title p,
+.project-detail {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.project-detail {
+  max-width: 230px;
+  line-height: 1.6;
+}
+
+.project-arrow {
+  color: var(--orange);
+  font-size: 27px;
+}
+
+/* Project color variants */
+.project.blue .project-number,
+.project.blue .project-title p,
+.project.blue .project-detail,
+.project.blue .project-arrow {
+  color: var(--blue);
+}
+
+.project.orange .project-number,
+.project.orange .project-title p,
+.project.orange .project-detail,
+.project.orange .project-arrow {
+  color: var(--orange);
+}
+
+.project.blue .project-title h3,
+.project.orange .project-title h3 {
+  color: #f0f1f3;
+}
+
+.project.blue:hover .project-arrow {
+  color: var(--blue);
+}
+
+.project.orange:hover .project-arrow {
+  color: var(--orange);
+}
+
+/* Responsive project list */
 @media (max-width: 700px) {
-  .project { grid-template-columns: 12% 1fr 30px; min-height: 145px; }
-  .project-detail { display: none; }
-  .project-title h3 { font-size: 2.5rem; }
+  .project {
+    grid-template-columns: 12% 1fr 30px;
+    min-height: 145px;
+  }
+
+  .project-detail {
+    display: none;
+  }
+
+  .project-title h3 {
+    font-size: 2.5rem;
+  }
 }
